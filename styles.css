@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 10%;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+h4 {
+    margin: 1;
+}
+h6 {
+    font-size: 7.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+}
+header p {
+    margin: 10px 0 0;
+}
+.fixed-text {
+    display: flex; /* Aktiviert Flexbox */
+    justify-content: space-between; /* Text links, Icons rechts */
+    align-items: center; /* Zentriert vertikal */
+    font-size: 5rem; /* Schriftgröße */
+    font-family: 'Courier New', Courier, monospace; /* Schriftart */
+    position: fixed;
+    top: 0; /* Position oben */
+    left: 0; /* Links ausrichten */
+    width: 100%; /* Breite über gesamte Seite */
+    color: white; /* Textfarbe */
+    background: linear-gradient(to bottom, rgba(39, 41, 41, 0.8), rgba(39, 41, 41, 0)); /* Gradient-Hintergrund */
+    padding: 10px 20px; /* Platz für Text und Icons */
+    line-height: 1; /* Reduzierte Zeilenhöhe */
+    z-index: 1000; /* Immer im Vordergrund */
+    text-align: left; /* Text linksbündig */
+    box-sizing: border-box; /* Padding in der Breite berücksichtigen */
+}
+.fixed-text p {
+    margin: 0; /* Entfernt den Standard-Außenabstand des <p>-Tags */
+}
+.social-media {
+    display: flex; /* Icons in einer Zeile */
+    justify-content: flex-end; /* Rechtsbündige Ausrichtung */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 10px; /* Abstand zwischen den Icons */
+    padding-right: 20px; /* Platz rechts, um Abschneiden zu vermeiden */
+    flex-wrap: nowrap; /* Verhindert Umbruch der Icons */
+    margin-top: -50px;
+}
+.social-media i {
+    font-size: 30px; /* Größe der Icons */
+    color: white; /* Farbe der Icons */
+    margin-left: 20px; /* Abstand zwischen den Icons */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-media i:hover {
+    transform: scale(1.2); /* Vergrößert das Icon bei Hover */
+    color: #f39c12; /* Ändert die Farbe beim Hover */
+}
+nav {
+    background-color: #444;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+section {
+    padding: 40px 10%;
+}
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+.hero {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/cs_background.jpg') no-repeat top 10% center/cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.hero h2 {
+    font-size: 4em;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
+}
+.about {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 1.6;
+    display: block;
+    text-align: center;
+}
+.about p {
+    margin-bottom: 15px;
+}
+.about-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+.album {
+    text-align: center;
+    cursor: pointer;
+}
+.album img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.album h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+.tracklist {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.tracklist h3 {
+    margin-top: 0;
+}
+.tour-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.tour-button {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #444;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    text-align: center;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, font-size 0.3s ease;
+    cursor: pointer;
+    font-size: 0.8em;
+    overflow: hidden;
+}
+.tour-button:hover {
+    width: 300px;
+    height: 150px;
+    background-color: #666;
+    font-size: 1.2em;
+}
+.tour-button span {
+    position: absolute;
+    top: 10px;
+    font-weight: bold;
+}
+.tour-button .tour-details {
+    opacity: 0;
+    position: absolute;
+    bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+.tour-button:hover .tour-details {
+    opacity: 1;
+}
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+footer a {
+    color: #444;
+    text-decoration: none;
+    margin: 0 10px;
+}
+#tour {
+    position: relative;
+    z-index: 1;
+}
+.no-bullets {
+    list-style-type: none; /* Entfernt die Punkte */
+    padding: 0;            /* Entfernt die Standard-Einrückung */
+    margin: 0;             /* Entfernt Standard-Abstand */
+}
+.toggle-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toggle-list.hidden {
+    display: none; /* Versteckt die Liste */
+}
+.toggle-button {
+    cursor: pointer;
+    background-color: #353638;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.toggle-button:hover {
+    background-color: #626568;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
