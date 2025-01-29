@@ -22,21 +22,6 @@ function showTracklist(id) {
         }, 300); // Kurze Verzögerung für nahtlosen Übergang
     }
 }
-document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
-    console.log(`Testing href: ${anchor.getAttribute('href')}`);
-    anchor.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        console.log(`Target ID: ${targetId}`);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            console.log(`Found element: ${targetId}`);
-        } else {
-            console.warn(`Element with ID ${targetId} not found!`);
-        }
-    });
-});
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('nav a, .cta-button').forEach((anchor) => {
         anchor.addEventListener('click', function(event) {
@@ -52,6 +37,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutSection = document.getElementById("about-section");
+
+    function checkScroll() {
+        const sectionPosition = aboutSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2; // Wann der Effekt startet
+
+        if (sectionPosition < screenPosition) {
+            aboutSection.classList.add("visible");
+        }
+    }
+
+    // Überprüfe das Scrollen
+    window.addEventListener("scroll", checkScroll);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
