@@ -6,6 +6,10 @@
     <title>Cassandra Steen - Offizielle Website</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <meta name="description" content="Offizielle Webseite von Cassandra Steen. Erfahre mehr über ihre Musik, Tourdaten und Kontaktmöglichkeiten.">
     <meta name="keywords" content="Cassandra Steen, Sängerin, Musik, Tour, Alben, Kontakt">
     <meta name="author" content="Cassandra Steen">
@@ -220,52 +224,85 @@
         </ul>
 
     </section>
+    
     <section id="tour">
         <h2>Tourdaten</h2>
-        <div class="tour-buttons">
-            <div class="tour-button">
-                <span>2010</span>
-                <div class="tour-details">
-                    <ul>
-                        <li>5. Oktober - Olympiahalle, München</li>
-                        <li>12. Oktober - Lanxess Arena, Köln</li>
-                    </ul>
-                </div>
+        <div class="tour-filter">
+            <button data-year="all">Alle</button>
+            <button data-year="2010">2010</button>
+            <button data-year="2015">2015</button>
+            <button data-year="2022">2022</button>
+        </div>
+        <div class="tour-container">
+            <div class="tour-card">
+                <span class="tour-year">2010</span>
+                <ul>
+                    <li>📍 5. Oktober - Olympiahalle, München</li>
+                    <li>📍 12. Oktober - Lanxess Arena, Köln</li>
+                </ul>
             </div>
-            <div class="tour-button">
-                <span>2015</span>
-                <div class="tour-details">
-                    <ul>
-                        <li>15. März - Alte Oper, Frankfurt</li>
-                        <li>20. März - Theaterhaus, Stuttgart</li>
-                    </ul>
-                </div>
+            <div class="tour-card">
+                <span class="tour-year">2015</span>
+                <ul>
+                    <li>📍 15. März - Alte Oper, Frankfurt</li>
+                    <li>📍 20. März - Theaterhaus, Stuttgart</li>
+                </ul>
             </div>
-            <div class="tour-button">
-                <span>2022</span>
-                <div class="tour-details">
-                    <ul>
-                        <li>10. Dezember - Stadthalle Leonberg</li>
-                    </ul>
-                </div>
+            <div class="tour-card">
+                <span class="tour-year">2022</span>
+                <ul>
+                    <li>📍 10. Dezember - Stadthalle Leonberg</li>
+                </ul>
             </div>
         </div>
     </section>
+    <div id="map" style="height: 400px;"></div>
+
+
 
     <section id="movies">
         <h2>Filmografie</h2>
-        <p>Cassandra Steen hat in mehreren Filmen als Sängerin mitgewirkt. Hier sind einige bemerkenswerte Projekte:</p>
-        <ul>
-            <li><strong><a href='https://de.wikipedia.org/wiki/Anja_%26_Anton' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Anja & Anton" (2005)</a></strong></li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/K%C3%BCss_den_Frosch' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Küss den Frosch" (2009):</a></strong> Deutsche Stimme und Gesang für Tiana</li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/Gute_Zeiten,_schlechte_Zeiten' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Gute Zeiten, schlechte Zeiten" (2008)</a></strong></li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/SOKO_K%C3%B6ln' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"SOKO Köln" (2010)</a></strong></li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/Alles_was_z%C3%A4hlt' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Alles was zählt" (2015)</a></strong></li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/Manou_%E2%80%93_flieg%E2%80%99_flink!' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Manou - flieg' flink" (2019):</a></strong> Kalifa, Stimme</li>
-            <li><strong><a href='https://de.wikipedia.org/wiki/Rote_Rosen' target='_blank' style='color: #444; text-decoration: none;' onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">"Rote Rosen" (2023):</a></strong> Gastrolle für 4 Folgen, ab Folge, ab Folge 3827</li>
-        </ul>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="images/ki_alben/anja_anton.webp" alt="Anja & Anton">
+                <h3>Anja & Anton (2005)</h3>
+                <a href="https://de.wikipedia.org/wiki/Anja_%26_Anton" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/gzsz.webp" alt="Gute Zeiten, schlechte Zeiten">
+                <h3>Gute Zeiten, schlechte Zeiten (2008)</h3>
+                <a href="https://de.wikipedia.org/wiki/Gute_Zeiten,_schlechte_Zeiten" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/kuss_frosch.webp" alt="Küss den Frosch">
+                <h3>Küss den Frosch (2009)</h3>
+                <p>Deutsche Stimme & Gesang für Tiana</p>
+                <a href="https://de.wikipedia.org/wiki/K%C3%BCss_den_Frosch" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/soko_koeln.webp" alt="SOKO Köln">
+                <h3>SOKO Köln (2010)</h3>
+                <a href="https://de.wikipedia.org/wiki/SOKO_K%C3%B6ln" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/awz.webp" alt="Alles was zählt">
+                <h3>Alles was zählt (2015)</h3>
+                <a href="https://de.wikipedia.org/wiki/Alles_was_z%C3%A4hlt" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/manou.webp" alt="Manou - flieg' flink!">
+                <h3>Manou - flieg' flink! (2019)</h3>
+                <p>Stimme von Kalifa</p>
+                <a href="https://de.wikipedia.org/wiki/Manou_%E2%80%93_flieg%E2%80%99_flink!" target="_blank">Mehr erfahren</a>
+            </div>
+            <div class="movie-card">
+                <img src="images/ki_alben/rote_rosen.webp" alt="Rote Rosen">
+                <h3>Rote Rosen (2023)</h3>
+                <p>Ab Folge 3827, für 4 Folgen</p>
+                <a href="https://de.wikipedia.org/wiki/Rote_Rosen" target="_blank">Mehr erfahren</a>
+            </div>
+        </div>
     </section>
-
     <section id="contact">
         <h2>Kontakt</h2>
         <p>Für Buchungsanfragen und weitere Informationen erreichst du Cassandra unter:</p>
@@ -274,7 +311,6 @@
         </p>
         <p>Weitere Informationen gibt es auch auf der Website ihrer <a href='https://www.0711talents.de/talent/cassandra-steen/' target='_blank'>Booking-Agentur 0711 Talents</a>.</p>
     </section>
-
     <footer>
         <p>Folge Cassandra auf:</p>
         <div style="margin-top: 10px;">
