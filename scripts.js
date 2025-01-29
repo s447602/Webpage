@@ -1,30 +1,124 @@
 function showTracklist(id) {
     const tracklist = document.getElementById(id);
-    if (tracklist.style.display === 'block') {
-        tracklist.style.display = 'none';
+    const allTracklists = document.querySelectorAll(".tracklist");
+
+    if (tracklist.classList.contains("visible")) {
+        tracklist.classList.remove("visible");
+        setTimeout(() => tracklist.style.display = "none", 300);
     } else {
-        const allTracklists = document.querySelectorAll('.tracklist');
-        allTracklists.forEach(t => t.style.display = 'none');
-        tracklist.style.display = 'block';
+        allTracklists.forEach(t => {
+            if (t.classList.contains("visible")) {
+                t.classList.add("fade-out"); // Sanftes Ausblenden
+                setTimeout(() => {
+                    t.classList.remove("visible", "fade-out");
+                    t.style.display = "none";
+                }, 300);
+            }
+        });
+
+        setTimeout(() => {
+            tracklist.style.display = "block";
+            setTimeout(() => tracklist.classList.add("visible"), 10);
+        }, 300); // Kurze Verzögerung für nahtlosen Übergang
     }
 }
-// Funktion zum Ein- und Ausklappen
-document.querySelectorAll('.toggle-button').forEach(button => {
-    button.addEventListener('click', function () {
-        const targetId = this.getAttribute('data-target'); // Ziel-Liste abrufen
-        const list = document.getElementById(targetId); // Liste mit der ID finden
+document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
+    console.log(`Testing href: ${anchor.getAttribute('href')}`);
+    anchor.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        console.log(`Target ID: ${targetId}`);
+        const targetElement = document.getElementById(targetId);
 
-        if (list) { // Sicherstellen, dass die Liste existiert
-            if (list.classList.contains('hidden')) {
-                list.classList.remove('hidden'); // Liste anzeigen
-                this.textContent = `Liste ausblenden`; // Button-Text ändern
-            } else {
-                list.classList.add('hidden'); // Liste ausblenden
-                this.textContent = `Liste anzeigen`; // Button-Text ändern
-            }
+        if (targetElement) {
+            console.log(`Found element: ${targetId}`);
+        } else {
+            console.warn(`Element with ID ${targetId} not found!`);
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('nav a, .cta-button').forEach((anchor) => {
+        anchor.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                console.log(`Smooth scrolling to: ${targetId}`);
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            } else {
+                console.warn(`Element mit ID ${targetId} nicht gefunden.`);
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".tracklist ul").forEach(tracklist => {
+        const songs = tracklist.querySelectorAll("li");
+
+        // Setze die Nummerierung für jeden Song korrekt
+        songs.forEach((song, index) => {
+            song.innerHTML = `<span class="song-number">${index + 1}.</span> ${song.innerHTML}`;
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".songs-container").forEach(container => {
+        container.style.maxHeight = "600px"; // Maximale Höhe für den sichtbaren Bereich
+        container.style.overflowY = "auto"; // Scrollbar aktivieren
+
+        // Füge Transparenz-Effekt bei Scrollen hinzu
+        container.addEventListener("scroll", function () {
+            const cards = container.querySelectorAll(".song-card");
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+
+                // Berechne die Sichtbarkeit des Songs
+                const visibleHeight = Math.max(
+                    0,
+                    Math.min(rect.bottom, containerRect.bottom) -
+                    Math.max(rect.top, containerRect.top)
+                );
+                const opacity = visibleHeight / rect.height;
+
+                // Setze die Transparenz basierend auf der Sichtbarkeit
+                card.style.opacity = opacity;
+            });
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const singlesArea = document.getElementById("singles-area");
+    const guestArea = document.getElementById("guest-area");
+    const singlesList = document.getElementById("singles-list");
+    const guestList = document.getElementById("guest-list");
+
+    // Funktion, um die Sichtbarkeit zu toggeln
+    function toggleList(area, list, otherList) {
+        if (list.classList.contains("visible")) {
+            // Liste ausblenden
+            list.classList.remove("visible");
+        } else {
+            // Liste einblenden und die andere Liste ausblenden
+            list.classList.add("visible");
+            otherList.classList.remove("visible");
+        }
+    }
+
+    // Event-Listener für die linke Hälfte (Singles)
+    singlesArea.addEventListener("click", function () {
+        toggleList(singlesArea, singlesList, guestList);
+    });
+
+    // Event-Listener für die rechte Hälfte (Gastbeiträge)
+    guestArea.addEventListener("click", function () {
+        toggleList(guestArea, guestList, singlesList);
+    });
+});
+
 // Funktion für smoothes scrollen
 document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
     anchor.addEventListener('click', function(event) {
@@ -38,6 +132,13 @@ document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
                 behavior: 'smooth'
             });
         }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".song-card").forEach(card => {
+        card.addEventListener("click", function () {
+            this.classList.toggle("expanded");
+        });
     });
 });
 // Funktion zum Filtern der Alben
