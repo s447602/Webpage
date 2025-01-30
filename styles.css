@@ -19,7 +19,7 @@ html {
     scroll-behavior: smooth;
 }
 header {
-    background-color: #222;
+    background: linear-gradient(to bottom, rgba(39, 41, 41, 0.8), rgba(39, 41, 41, 0)); /* Gradient-Hintergrund */
     color: #fff;
     padding: 20px 10%;
     text-align: center;
@@ -81,13 +81,10 @@ header p {
 }
 /* Kompakter Header */
 .compact-header {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
-                url('images/hero-background.webp') no-repeat center/cover;
     color: white;
     text-align: center;
     padding: 20px 0; /* Entfernt das seitliche Padding */
     font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
