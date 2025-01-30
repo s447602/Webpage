@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
+});
 function showTracklist(id) {
     const tracklist = document.getElementById(id);
     const allTracklists = document.querySelectorAll(".tracklist");
