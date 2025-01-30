@@ -8,6 +8,13 @@ body, html {
     color: #333;
     overflow-x: hidden;
 }
+/* Hintergrund über die gesamte Seite */
+body {
+    background: url('images/hero-background.webp') no-repeat center center fixed; /* Bild ist fixiert */
+    background-size: cover; /* Hintergrund füllt die gesamte Seite */
+    background-attachment: fixed; /* Bild bleibt beim Scrollen fixiert */
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -72,6 +79,82 @@ header p {
     transform: scale(1.2); /* Vergrößert das Icon bei Hover */
     color: #f39c12; /* Ändert die Farbe beim Hover */
 }
+/* Kompakter Header */
+.compact-header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
+                url('images/hero-background.webp') no-repeat center/cover;
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Entfernt das seitliche Padding */
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 10%; /* Optionales Padding nur für den Text */
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.4; /* Vergrößert den Abstand zwischen den Zeilen */
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 0; /* Zusätzlicher Abstand nach oben */
+    margin-bottom: 15px;
+    font-weight: 300;
+    opacity: 0.9;
+    line-height: 3.8; /* Erhöht den Zeilenabstand für die Unterzeile */
+}
+
+/* Navigation */
+.main-nav {
+    background: #181818;
+    padding: 10px 0;
+    margin-top: 0;
+    text-align: center;
+    width: 100vw; /* Breite der Navigation von ganz links nach ganz rechts */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-nav li {
+    display: inline-block;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.main-nav a:hover {
+    background: #e69412;
+    color: black;
+    transform: scale(1.1);
+}
+
 nav {
     background-color: #444;
     color: #fff;
@@ -131,9 +214,9 @@ section.default-section {
     justify-content: center; /* Horizontale Zentrierung */
     align-items: center; /* Vertikale Zentrierung */
     text-align: center; /* Zentriert den gesamten Text */
-    background-color: #fff; /* Weißer Hintergrund */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sanfter Schatten */
-    border-radius: 15px; /* Abgerundete Ecken */
+    background: rgba(255, 255, 255, 0.9); /* Weiß mit 90% Deckkraft */
+    border-radius: 15px; /* Runde Ecken für ein moderneres Design */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sanfter Schatten für besseren Kontrast */
     padding: 40px; /* Mehr Platz innen */
     max-width: 1200px; /* Begrenzte Breite */
     margin: 40px auto; /* Zentriert die Box auf der Seite */
@@ -246,7 +329,7 @@ section.default-section {
     font-size: 1.4rem; /* Größere Schrift für bessere Lesbarkeit */
     font-weight: 500; /* Mittlere Schriftstärke */
     text-align: center; /* Zentriert den Text in jeder Zeile */
-    max-width: 800px; /* Begrenzte Breite für bessere Lesbarkeit */
+    max-width: 1800px; /* Begrenzte Breite für bessere Lesbarkeit */
     margin: 20px auto; /* Abstand oben/unten + zentriert */
     color: #000000; /* Helles Grau für modernen Look */
     line-height: 1.6; /* Mehr Abstand zwischen den Zeilen */
@@ -254,6 +337,9 @@ section.default-section {
     display: block; /* Kein flex mehr, um Text normal umbrechen zu lassen */
     padding-bottom: 5px; /* Platz für den Unterstrich */
     word-wrap: break-word; /* Falls der Text zu lang wird */
+    background: rgba(255, 255, 255, 0.9); /* Weiß mit 90% Deckkraft */
+    border-radius: 10px; /* Runde Ecken für ein moderneres Design */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sanfter Schatten für besseren Kontrast */
 }
 
 /* Farbige Hervorhebung für wichtige Begriffe */
