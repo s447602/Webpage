@@ -891,17 +891,6 @@ section.default-section {
 .ki-text k {
     padding: 5px;
 }
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-footer a {
-    color: #444;
-    text-decoration: none;
-    margin: 0 10px;
-}
 #tour {
     position: relative;
     z-index: 1;
@@ -998,4 +987,35 @@ footer a {
 .social-icon:hover {
     transform: scale(1.2);
     color: #f39c12;
+}
+footer {
+    background: linear-gradient(to right, #222, #333); /* Edler dunkler Verlauf */
+    color: white;
+    padding: 45px 20px; /* Verkleinert den Footer */
+    text-align: left; /* Text nach links ausrichten */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 3px solid #f39c12;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: left; /* Text linksbündig */
+    padding: 10px;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #f39c12;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
 }
