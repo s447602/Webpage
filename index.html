@@ -16,13 +16,35 @@
 </head>
 <body>
     <div class="fixed-text">
-        <p>CASSANDRA</p>
-        <div class="social-media">
-            <a href="https://open.spotify.com/intl-de/artist/6wbgb7phg82I4tnO6GWMhr?si=ftJFMfEPQuetlkzif0QMvA" target="_blank"><i class="fab fa-spotify"></i></a>
-            <a href="https://www.youtube.com/channel/UCJuDewL8YBMtFvtMdSJcZdg" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/cassandra_steen/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/CassandraSteenMusic" target="_blank"><i class="fab fa-facebook"></i></a>
-        </div>        
+        <!-- Bereich für Logo und Text -->
+        <div class="logo-container">
+            <img src="images/Logo/A_S_logo_transparent.png" alt="AS Logo" class="logo-fixed">
+            <span class="logo-subtext">Website by Adrian Steen</span>
+        </div>
+    
+        <!-- Cassandra oben rechts -->
+        <p class="cassandra-text">CASSANDRA</p>
+    
+        <div class="social-media-wrapper">
+            <div class="social-media-toggle">
+                <i class="fab fa-telegram-plane"></i> <!-- Telegram-Icon -->
+            </div>
+            <div class="social-media-icons">
+                <a href="https://api.whatsapp.com/send?text=Schau dir das an! https://deineseite.de" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/username/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://deineseite.de" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:?subject=Schau dir das an!&body=Ich wollte dir diese Webseite zeigen: https://deineseite.de">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+             
     </div>    
     <header class="compact-header">
         <div class="header-content">
@@ -39,7 +61,6 @@
             </ul>
         </nav>
     </header>
-    
     <section class="about" id="about">
         <div class="about-content">
             <img src="images/cs_about.jpg" alt="Cassandra Steen" class="about-img">
@@ -61,17 +82,22 @@
             </p>
         </div>
     </section>
-    
     <section class="default-section" id="music">
-        <h2>Musik</h2>
+        <section class="content-section">
+            <header class="section-header">
+                <h2>Musik</h2>
+            </header>
+        </section> 
         <p class="highlight-animated">
             Hier findest du eine Auswahl von <strong>Cassandras</strong> bekanntesten 
             <span class="gold-text">Songs</span>, <span class="gold-text">Alben</span> und 
             <span class="gold-text">Zusammenarbeiten</span>.
         </p>
-        
-        
-        <h3>Alben</h3>
+        <section class="content-section">
+            <header class="section-header">
+                <h2 class="subheading">Alben</h2>
+            </header>
+        </section> 
         <div class="albums">
             </a>
             <div class="album" onclick="showTracklist('album1-tracklist')">
@@ -171,16 +197,17 @@
             </ul>
         </div>
     </section>
-    <section class="split-section">
-        <!-- Linke Hälfte: Singles -->
-        <div class="split-left" id="singles-area">
-            <h2>Singles</h2>
-        </div>
-    
-        <!-- Rechte Hälfte: Gastbeiträge -->
-        <div class="split-right" id="guest-area">
-            <h2>Gastbeiträge</h2>
-        </div>
+    <section class="default-section" >
+        <section class="content-section">
+            <header class="section-header">
+                <h2 class="subheading">Songs</h2>
+            </header>
+        </section> 
+    </section>
+    <section class="button-section">
+        <h2 class="section-title">Entdecke mehr:</h2>
+        <button class="split-left" id="singles-area">Singles</button>
+        <button class="split-right" id="guest-area">Gastbeiträge</button>
     </section>
     
     <!-- Listen, die je nach Klick angezeigt werden -->
@@ -343,9 +370,10 @@
             </div>
         </div>
     </section>
-    
-    <section class="default-section" id="tour">
-        <h2>Tourdaten</h2>
+    <section class="default-section" class="content-section" id="tour">
+        <header class="section-header">
+            <h2>Tourdaten</h2>
+        </header>
         <div class="tour-filter">
             <button data-year="all">Alle</button>
             <button data-year="2010">2010</button>
@@ -376,11 +404,12 @@
         </div>
     </section>
     <div id="map" style="height: 400px;"></div>
-
-
-
     <section class="default-section" id="movies">
-        <h2>Filmografie</h2>
+        <section class="content-section">
+            <header class="section-header">
+                <h2>Filmografie</h2>
+            </header>
+        </section> 
         <div class="movie-grid">
             <div class="movie-card">
                 <img src="images/ki_alben/anja_anton.webp" alt="Anja & Anton">
@@ -421,6 +450,7 @@
                 <a href="https://de.wikipedia.org/wiki/Rote_Rosen" target="_blank">Mehr erfahren</a>
             </div>
         </div>
+        <p class="ki-text">Diese Bilder sind KI generiert</p>
     </section>
     <section class="contact" id="contact">
         <div class="contact-container">

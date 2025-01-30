@@ -53,6 +53,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Überprüfe das Scrollen
     window.addEventListener("scroll", checkScroll);
 });
+// Social-Media-Menü-Toggle
+const socialMediaWrapper = document.querySelector('.social-media-wrapper');
+const toggleButton = document.querySelector('.social-media-toggle');
+
+// Klick-Event hinzufügen
+toggleButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Standardaktion verhindern
+    event.stopPropagation(); // Verhindert, dass andere Events ausgelöst werden
+    socialMediaWrapper.classList.toggle('active'); // Menü ein- oder ausblenden
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".tracklist ul").forEach(tracklist => {
