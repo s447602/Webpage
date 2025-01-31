@@ -785,6 +785,7 @@ section.default-section {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     max-width: 900px;
     margin: 60px auto;
+    margin-top: 180px;
 }
 
 /* Container für Kontakt */
