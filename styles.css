@@ -471,7 +471,7 @@ section.default-section {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     text-align: center;
     width: calc(20vw - 10px); /* Karten skalieren basierend auf der Bildschirmbreite */
-    max-width: 200px; /* Obergrenze für die Kartengröße */
+    max-width: 275px; /* Obergrenze für die Kartengröße */
     background: linear-gradient(to bottom, #111, #29292986);
 }
 
@@ -493,25 +493,25 @@ section.default-section {
 .album img {
     width: 100%;
     height: calc(20vw - 10px); /* Gleiche Höhe wie Breite */
-    max-height: 200px; /* Obergrenze für die Bildhöhe */
+    max-height: 275px; /* Obergrenze für die Bildhöhe */
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .album h3, .album p {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .album h3 {
     margin-top: 10px;
-    font-size: 1em;
+    font-size: 1.3em;
     color: #eeeded;
 }
 
 .album p {
     color: #d5d5d5;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 /* Layout-Anpassung für verschiedene Bildschirmgrößen */
