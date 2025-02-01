@@ -8,7 +8,7 @@ function showTracklist(id) {
     } else {
         allTracklists.forEach(t => {
             if (t.classList.contains("visible")) {
-                t.classList.add("fade-out"); // Sanftes Ausblenden
+                t.classList.add("fade-out");
                 setTimeout(() => {
                     t.classList.remove("visible", "fade-out");
                     t.style.display = "none";
@@ -20,10 +20,23 @@ function showTracklist(id) {
             tracklist.style.display = "block";
             setTimeout(() => {
                 tracklist.classList.add("visible");
-                // Automatisches Scrollen zur Tracklist
-                tracklist.scrollIntoView({ behavior: 'smooth' });
+                
+                // Nur wenn nötig scrollen (sanft und minimal)
+                const tracklistRect = tracklist.getBoundingClientRect();
+                const isInView = (
+                    tracklistRect.top >= 0 &&
+                    tracklistRect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+
+                if (!isInView) {
+                    tracklist.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',    // Minimale Scrollbewegung
+                        inline: 'start'
+                    });
+                }
             }, 10);
-        }, 300); // Kurze Verzögerung für nahtlosen Übergang
+        }, 300);
     }
 }
 
