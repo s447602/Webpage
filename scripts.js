@@ -18,10 +18,15 @@ function showTracklist(id) {
 
         setTimeout(() => {
             tracklist.style.display = "block";
-            setTimeout(() => tracklist.classList.add("visible"), 10);
+            setTimeout(() => {
+                tracklist.classList.add("visible");
+                // Automatisches Scrollen zur Tracklist
+                tracklist.scrollIntoView({ behavior: 'smooth' });
+            }, 10);
         }, 300); // Kurze Verzögerung für nahtlosen Übergang
     }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('nav a, .cta-button').forEach((anchor) => {
         anchor.addEventListener('click', function(event) {

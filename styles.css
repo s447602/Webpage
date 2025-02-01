@@ -472,6 +472,7 @@ section.default-section {
     text-align: center;
     width: calc(20vw - 10px); /* Karten skalieren basierend auf der Bildschirmbreite */
     max-width: 200px; /* Obergrenze für die Kartengröße */
+    background: linear-gradient(to bottom, #111, #29292986);
 }
 
 .album:hover {
@@ -505,11 +506,11 @@ section.default-section {
 .album h3 {
     margin-top: 10px;
     font-size: 1em;
-    color: #333;
+    color: #eeeded;
 }
 
 .album p {
-    color: #666;
+    color: #d5d5d5;
     font-size: 0.9em;
 }
 
