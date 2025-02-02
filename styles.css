@@ -505,13 +505,11 @@ section.default-section {
 
 .album h3 {
     margin-top: 10px;
-    font-size: 1.3em;
     color: #eeeded;
 }
 
 .album p {
     color: #d5d5d5;
-    font-size: 1em;
 }
 
 /* Layout-Anpassung für verschiedene Bildschirmgrößen */
@@ -535,6 +533,14 @@ section.default-section {
     .album img {
         height: calc(30vw - 10px); /* Gleiche Höhe wie Breite */
         max-height: 120px; /* Reduzierte maximale Höhe */
+    }
+    .album h3 {
+        width: calc(30vw - 10px); /* Noch kleinere Karten für kleine Bildschirme */
+        max-width: 120px; /* Reduzierte maximale Breite */
+    }
+    .album p {
+        width: calc(30vw - 10px); /* Noch kleinere Karten für kleine Bildschirme */
+        max-width: 120px; /* Reduzierte maximale Breite */
     }
 }
 
